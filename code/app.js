@@ -18,8 +18,14 @@ tableData.forEach((ufoSightings) => {
 function replaceUfoData() {
   // d3.event.preventDefault();
   
-  // Locate datetime entry box and grab user's input value using the .property method
+  // Locate user entry box and grab user's input value using the .property method
   var userInput = d3.select("#datetime").property("value");
+  // var userInput = d3.select("#city").property("value");
+  // var userInput = d3.select("#state").property("value");
+  // var userInput = d3.select("#country").property("value");
+  // var userInput = d3.select("#shape").property("value");
+  // var userInput = d3.select("#duration").property("value");
+  // var userInput = d3.select("#comment").property("value");
 
   // Using the user's inputted value, find the matches in the existing table and store in a variable
   var usersFilteredData = tableData.filter(x => x.datetime === userInput);  
@@ -37,7 +43,6 @@ function replaceUfoData() {
  
 // Test to see if clicking the 'Filter Data' actually does something and made it through my function
 console.log("Testing...testing 1, 2, 3...");
-
 }
 
 // Assign the html button to a variable
@@ -46,8 +51,8 @@ var filterDataButton = d3.select("#filter-btn");
 // Event listener for when user clicks the button after entering a date value to run the above function
 filterDataButton.on("click", replaceUfoData);
 
-document.querySelector(filterDataButton).addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
+const pressEnterInput = document.querySelector("#datetime").addEventListener('keypress', function (e) {
+  if (e.keyCode === 13) {
     replaceUfoData;
   }
 });
