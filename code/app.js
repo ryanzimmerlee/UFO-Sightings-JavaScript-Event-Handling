@@ -51,6 +51,8 @@ var filterDataButton = d3.select("#filter-btn");
 // Event listener for when user clicks the button after entering a date value to run the above function
 filterDataButton.on("click", replaceUfoData);
 
+// Tried to create an event listener which would enable the end-user to hit the 'Enter' key instead of 'Filter Data' button....
+// Doesn't work...as of now.
 const pressEnterInput = document.querySelector("#datetime").addEventListener('keypress', function (e) {
   if (e.keyCode === 13) {
     replaceUfoData;
